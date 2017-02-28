@@ -1,0 +1,35 @@
+windows:
+1. 安装git软件后需配置秘钥信息
+	gitlab或github都会配有ssh信息，在本地生成秘钥信息后在setting中增加ssh key即可	
+
+2. 首次需要配置好本地git环境
+git clone git@github.com:wangxiaog521/MyNote.git
+
+也可直接通过git pull将主干同步到本地
+git pull git@github.com:wangxiaog521/MyNote.git
+
+3. 本地新建分支，修改提交，推送到远程分支 
+# 切换到主干
+git checkout master
+
+# 创建分支，名为：20170208
+git checkout -b 20170208
+
+# 本地删除分支20170208
+git branch -D 20170208
+
+# 增加
+git add .
+
+# 提交
+git commit -a -m "comments"
+
+# 查看状态
+git status
+
+# push
+git push origin 20170208
+
+git push git@github.com:wangxiaog521/MyNote.git
+git push --set-upstream git@github.com:wangxiaog521/MyNote.git master
+git push -f --set-upstream git@github.com:wangxiaog521/MyNote.git master
