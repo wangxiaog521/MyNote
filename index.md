@@ -3,4 +3,4 @@
 * test
 
 
-[otherone](xx.md)
+[otherone](xxx.md)
