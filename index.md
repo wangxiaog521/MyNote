@@ -1,3 +1,3 @@
 {% for post in site.posts %}
-[post.title]({{ site.baseurl }}{{ post.url }})
+[post.id]({{ site.baseurl }}{{ post.url }})
 {% endfor %}
