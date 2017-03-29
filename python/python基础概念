@@ -129,6 +129,10 @@ III. 数据结构
 		print 'characters 2 to end is', name[2:]
 		print 'characters 1 to -1 is', name[1:-1]
 		print 'characters start to end is', name[:]
+		列表综合
+		a=[1,2,3]
+		b=[2*i for i in a if i > 1]
+		print b # [4,6]
 
 	5. 字符串方法
 		name.startwith('S')
@@ -175,12 +179,42 @@ IV. 类库
 		else:
 		  ...
 
-		5. finally
+	5. finally
 		try:
 		  ...
 		finally:
 		  ...
 
+  6. cat
+[root@localhost mypython]# cat cat.py
+#!/usr/bin/python
 
+import sys
 
-89
+def readfile(filename):
+  f=file(filename)
+  while True:
+    line=f.readline()
+    if len(line) == 0:
+      break 
+    print line,
+  f.close()
+
+if len(sys.argv) < 2:
+  print 'no action'
+  sys.exit()
+
+# sys.argv[1].startwith('--'):
+if sys.argv[1][0:2] == '--':
+  if sys.argv[1][2:] == 'version':
+    print 'cat version - 1.2'
+  elif sys.argv[1][2:] == 'help':
+    print 'Usage: xxx'
+  else:
+    print 'unknow option'
+else:
+  for i in sys.argv[1:]:
+    print 'reading file %s' % i
+    print '----------------------'
+    readfile(i)
+    print
