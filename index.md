@@ -1,10 +1,5 @@
 {% for post in site.posts %}
 
-* [{{ post.title }}]({{ site.baseurl }}{{ post.url }})
-
-{{ post.id }}
-{{ post.url }}
-{{ post.title }}
-{{ post.id }}
+* [{{ post.id }}]({{ site.baseurl }}{{ post.url }})
 
 {% endfor %}
