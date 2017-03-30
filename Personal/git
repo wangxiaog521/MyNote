@@ -1,6 +1,6 @@
-windows:
-1. 安装git软件后需配置秘钥信息
-	gitlab或github都会配有ssh信息，在本地生成秘钥信息后在setting中增加ssh key即可	
+# windows:
+* 1. 安装git软件后需配置秘钥信息
+    gitlab或github都会配有ssh信息，在本地生成秘钥信息后在setting中增加ssh key即可   
 
 2. 首次需要配置好本地git环境
 git clone git@github.com:wangxiaog521/MyNote.git
