@@ -8,3 +8,14 @@ usermod -G root log # log加入root组
 
 groupadd -g 505 log # 添加log用户组
 ```
+
+## iterm2断开连接
+mac下在~/.ssh/config里添加如下：
+```shell
+ServerAliveInterval 50
+```
+
+## 个性化.bash_profile
+```shell
+export PS1='\n\e[1;37m[\e[m\e[1;32m\u\e[m\e[1;33m@\e[m\e[1;35m\H\e[m \e[4m`pwd`\e[m\e[1;37m]\e[m\e[1;36m\e[m\n\$ '
+```
