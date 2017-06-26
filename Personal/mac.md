@@ -14,3 +14,18 @@
 | sublime: home&end | command+-> | wins+-> |
 | iterm2: home&end | fn+-> | Home键 |
 | iterm2切换 | command+` | wins+` |
+
+## 创建VPN
+* 在/etc/ppp目录下新建options文件：
+```
+sudo vim /etc/ppp/options
+plugin L2TP.ppp
+l2tpnoipsec
+```
+* 连接VPN
+* 添加路由规则
+```
+sudo route -n delete -net 192.168.60.33 -netmask 255.255.255.255 192.168.2.17
+sudo route -n add -net 192.168.60.33 -netmask 255.255.255.255 192.168.2.17
+
+```
