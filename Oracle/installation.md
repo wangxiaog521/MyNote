@@ -72,12 +72,12 @@ oracle              hard    nofile  65536
 
 ### 5. 创建用户
 ```shell
-# /usr/sbin/groupadd oinstall
-# /usr/sbin/groupadd dba
-# /usr/sbin/useradd -g oinstall -G dba oracle
-# mkdir -p /app/oracle
-# chown -R oracle:oinstall /app/oracle
-# passwd oracle
+/usr/sbin/groupadd oinstall
+/usr/sbin/groupadd dba
+/usr/sbin/useradd -g oinstall -G dba oracle
+mkdir -p /app/oracle
+chown -R oracle:oinstall /app/oracle
+passwd oracle
 ```
 
 ### 6. 修改操作系统版本
