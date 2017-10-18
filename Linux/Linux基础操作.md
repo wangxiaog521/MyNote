@@ -4,12 +4,18 @@
 id
 # 添加一个用户
 useradd 
-# 添加用户并制定UID，GUID和root用户组
-useradd -u 505 -g 505 -G root log 
-# log加入root组
-usermod -G root log 
 # 添加log用户组
 groupadd -g 505 log 
+
+# 添加用户并制定UID，GUID和root用户组
+useradd -u 505 -g 505 -G root log 
+
+# log加入root组
+usermod -G root log 
+# 已有用户log加入已有用户组root, root作为附属组
+usermod -a -G root log
+# 已有用户log加入已有用户组root, root作为主用户组
+usermod -a -g root log
 ```
 
 ## iterm2断开连接
@@ -133,4 +139,13 @@ Filesystem            Size  Used Avail Use% Mounted on
 /dev/sda5             9.9G  1.2G  8.2G  13% /home
 tmpfs                  95G  336K   95G   1% /dev/shm
 /dev/sdb1             3.5T  197M  3.3T   1% /data1
+```
+
+## 网络抓包
+```
+# 通过网络抓包来获取指定端口以及指定服务器的访问，如从110.75.145.2过来访问3308端口。
+tcpdump -nn tcp port 3308 and host 110.75.145.2
+
+# 端口转发服务的日志在/var/log/rinetd.log，可以查看此日志来获取访问来源
+awk '{if($2 !~ /10.*/) print $2}' rinetd.log | sort | uniq
 ```

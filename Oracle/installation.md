@@ -101,7 +101,9 @@ alias alert='tail -200f /app/oracle/admin/rac/bdump/alert_rac1.log'
 ```
 
 ### 8. 以oracle用户登录并开始安装
-* 安装序列
+#### 8.1. install oracle software
+
+安装序列
 
 | file | release |
 | --- | --- |
@@ -111,8 +113,6 @@ alias alert='tail -200f /app/oracle/admin/rac/bdump/alert_rac1.log'
 | p6880880_102000_Linux-x86-64.zip | 升级opatch到10.2.5.1 上一步升级完成opatch只到10.2.0.4.9 |
 | p16619894_10205_Linux-x86-64.zip | 打10.2.0.5.0 PSU patch包 |
 
-
-#### Chap 1. install oracle software
 1. upload file and unzip file cpio -idmv < 10201_database_linux_x86_64.cpio
 
 2. create file oraInst.loc in /etc  
@@ -181,8 +181,25 @@ redhat 4
 ```shell
 $ ./runInstaller -silent -ignoreSysPrereqs -responseFile /home/oracle/enterprise01.rsp
 ```
+#### 8.2. use scp to duplicate database
+1. make sure the cloned database have the same directory structure
+	* copy .bash_profile
+	* copy $ORACLE_BASE directory. Please clear adump/bdump trace files before scp.
 
-#### Chap 2: create database using rman duplicate
+2. modify file listener.ora.rac1
+
+3. relink all
+
+4. create pfile from spfile, and modify the db uniqe name, then create spfile from pfile
+
+5. create standby control file in primary database and cp it to target.
+	```sql
+	backup current controlfile for standby format '${CTLDir}/sb_cntrl_%s_%p_%s';
+	```
+
+6. using rman to restore control file and database files, then recover database.
+
+#### 8.3. create database using rman duplicate
 1. make sure both side have the same version, if not, upgrade it  
 ```shell
 unzip file p6810189_10204_Linux-x86-64.zip  
