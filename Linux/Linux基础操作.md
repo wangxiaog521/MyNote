@@ -149,3 +149,14 @@ tcpdump -nn tcp port 3308 and host 110.75.145.2
 # 端口转发服务的日志在/var/log/rinetd.log，可以查看此日志来获取访问来源
 awk '{if($2 !~ /10.*/) print $2}' rinetd.log | sort | uniq
 ```
+
+## 域名解析
+```
+# 根据指定的命名服务器去询问
+dig @ns1.google.com www.google.com
+
+```
+
+
+
+11.233.10.247

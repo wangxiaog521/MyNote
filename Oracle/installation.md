@@ -54,7 +54,7 @@ Oralce 建议 SHMMAX > SGA(SGA_MAX_SIZE)，这样在任何时候都不会有甚�
 
 * fs.file-max 参数  
 fs.file-max为512 乘以 processes。
-如2000个process，则file-max=512*2000=1024000
+如2000个process，则file-max=512x2000=1024000
 		
 * 参数生效  
 ```shell
@@ -181,6 +181,7 @@ redhat 4
 ```shell
 $ ./runInstaller -silent -ignoreSysPrereqs -responseFile /home/oracle/enterprise01.rsp
 ```
+
 #### 8.2. use scp to duplicate database
 1. make sure the cloned database have the same directory structure
 	* copy .bash_profile

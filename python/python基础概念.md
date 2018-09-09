@@ -1,4 +1,4 @@
-I. 基本概念
+## 1. 基本概念
 	1. 数
 		a. 整数：2
 		b. 长整数：
@@ -17,15 +17,15 @@ I. 基本概念
 		b. 大小写敏感
     
 
-II. 表达式
-	1. 运算符
+## 2. 表达式
+### 2.1. 运算符
 		**	幂	返回x的y次幂	3 ** 4得到81（即3 * 3 * 3 * 3
 		//	取整除	返回商的整数部分	4 // 3.0得到1.0
 		%	取模	返回除法的余数	8%3得到2。-25.5%2.25得到1.5
 		<<	左移	把一个数的比特向左移一定数目	2 << 2得到8。——2按比特表示为10
 		>> 	右移	把一个数的比特向右移一定数目	11 >> 1得到5。——11按比特表示为1011，向右移动1比特后得到101，即十进制的5。
 		|	按位或	数的按位或	5 | 3得到7。
-		&	按位与	数的按位与	5 & 3得到1。
+		&	按位与	数的按位与	5 & 3得到1。	
 		^	按位异或	数的按位异或	5 ^ 3得到6
 		~	按位翻转	x的按位翻转是-(x+1)	~5得到-6。
 		<	小于	返回x是否小于y。所有比较运算符返回1表示真，返回0表示假。这分别与特殊的变量True和False等价。注意，这些变量名的大写。	5 < 3返回0（即False）而3 < 5返回1（即True）。比较可以被任意连接：3 < 5 <7返回True。
@@ -38,8 +38,8 @@ II. 表达式
 		and	布尔“与”	如果x为False，x and y返回False，否则它返回y的计算值。	x = False; y = True; x and y，由于x是False，返回False。在这里，Python不会计算y，因为它知道这个表达式的值肯定是False（因为x是False）。这个现象称为短路计算。
 		or	布尔“或”	如果x是True，它返回True，否则它返回y的计算值。	x = True; y = False; x or y返回True。短路计算在这里也适用。
 
-	2. 控制流
-		a. if&while
+### 2.2. 控制流
+#### a. if&while
 		number=15153
 		running=1
 		while running:
@@ -55,13 +55,15 @@ II. 表达式
 		    print "larger than"
 		print "all done"
 		
-		b. >>> for i in range(1,5,3):
-		...   print 'VALUE: ',i
-		... 
-		VALUE:  1
-		VALUE:  4
+#### b. for
+```
+l = [i for i in range(1,5)] 
+for i in l:
+    print(i)
+```
+
 		
-		c. while True:
+#### c. while True:
 		  s = raw_input('Enter something: ')
 		  if s == 'quit':
 		    break
@@ -71,14 +73,14 @@ II. 表达式
 		  print 'Length is',len(s)
 		print 'done'
 		
-	3. 函数
+### 2.3. 函数
 		a. DocStrings，按以下规则但不强制，调用方式为：function.__doc__
 			i. 首行大写
 			ii. 句号结尾
 			iii. 第二行空行，第三行详细描述
 		b. dir()
 		
-III. 数据结构
+## 3. 数据结构
 	1. list
 		mylist=['a','b','c']
 		len(mylist)
@@ -144,7 +146,7 @@ III. 数据结构
 		print 'info:', #不换行
 		name.replace('a','b')
 
-IV. 类库
+## 4. 类库
 	1. time
 		time.strftime('%Y%m%d%H%M%S')
 		os
@@ -218,3 +220,4 @@ else:
     print '----------------------'
     readfile(i)
     print
+
